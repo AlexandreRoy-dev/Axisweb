@@ -1,5 +1,6 @@
-@tailwind base;
-
-@tailwind components;
-
-@tailwind utilities;
+@import "tailwindcss";
+@import "./theme.css"; 
+@theme { 
+--font-body: "DM Sans";
+--font-heading: "Instrument Sans";
+ }
