@@ -1,569 +1,258 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- ======================================================
-         HEAD / META / SEO
-         ====================================================== -->
-    <title>Axis CPA — Comptabilité et gestion | Gatineau, Québec</title>
+    <title>Axis CPA — Excellence en Comptabilité | Gatineau</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Cabinet de CPA à Gatineau offrant des services de comptabilité, fiscalité et gestion haut de gamme.">
 
-    <!-- Google Fonts (préconnexion + chargement) -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,600,700,800,900|Instrument+Sans:400,500,600,700,800,900&amp;subset=latin">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Instrument+Sans:400,500,600,700&display=swap">
 
-    <!-- Tailwind exporté depuis Shuffle -->
-    <link rel="stylesheet" href="css/tailwind/tailwind.min.css">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="shuffle-for-tailwind.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#F8F9FA',
+                            dark: '#111111',
+                            accent: '#C5A059', // Sophisticated Gold accent
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        heading: ['Instrument Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        [x-cloak] { display: none !important; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        body { font-family: 'DM Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Instrument Sans', sans-serif; }
+    </style>
 </head>
 
-<body class="antialiased bg-body text-body font-body">
-  <div>
+<body class="antialiased bg-white text-neutral-900" x-data="{ mobileMenuOpen: false }">
 
-    <!-- ======================================================
-         SECTION 1 : HERO + NAVIGATION (Alpine.js mobile menu)
-         ====================================================== -->
-    <section data-from-ai="false"
-             class="relative pb-8 overflow-y-hidden bs-section-dragged"
-             x-data="{ mobileNavOpen: false }">
+<nav class="fixed w-full z-50 glass-nav border-b border-neutral-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex justify-between items-center h-20">
+            
+            <div class="flex-shrink-0 flex items-center">
+                <a href="/" aria-label="Accueil Axis CPA">
+                    <img src="axis.svg" alt="Logo Axis CPA" class="h-12 lg:h-16 w-auto block">
+                </a>
+            </div>
 
-      <!-- Image décorative (visible seulement sur desktop) -->
-      <img class="hidden lg:block absolute top-0 left-0 bottom-0 w-2/5 object-cover"
-           src="../src/assets/amelie.webp"
-           alt="">
+            <div class="hidden md:flex space-x-10 text-sm font-medium tracking-wide uppercase">
+                <a href="#services" class="hover:text-brand-accent transition">Services</a>
+                <a href="#about" class="hover:text-brand-accent transition">À Propos</a>
+                <a href="#faq" class="hover:text-brand-accent transition">F.A.Q.</a>
+                <a href="#contact" class="hover:text-brand-accent transition">Contact</a>
+            </div>
 
-      <div class="relative container px-4 mx-auto">
+            <div class="hidden md:block">
+                <a href="#contact" class="px-6 py-3 bg-brand-accent text-white text-xs font-bold uppercase tracking-widest hover:bg-brand-dark transition duration-300">
+                    Prendre rendez-vous
+                </a>
+            </div>
 
-        <!-- ================= NAVBAR ================= -->
-        <nav class="flex justify-between items-center py-8">
+            <div class="md:hidden flex items-center">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-neutral-900">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
 
-          <!-- Logo desktop -->
-          <a class="hidden lg:inline-block text-gray-600 text-2xl leading-none" href="#">
-            <img class="h-14" src="../src/assets/Axishor.svg" alt="Axis CPA" width="auto">
-          </a>
+<section class="relative pt-24 pb-20 lg:pt-36 lg:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 z-10">
+                <span class="inline-block py-1 px-3 mb-6 text-xs font-bold tracking-widest text-brand-accent uppercase bg-neutral-50 rounded-full">
+                    Gatineau, Québec
+                </span>
+                <h1 class="text-5xl lg:text-7xl font-semibold leading-tight mb-8">
+                    Le point d'équilibre de votre <span class="italic font-light">succès.</span>
+                </h1>
+                <p class="text-xl text-neutral-500 mb-10 leading-relaxed max-w-xl">
+                    Expertise comptable et conseil de haut niveau. Nous transformons la complexité fiscale en une trajectoire de croissance claire.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="px-8 py-4 bg-brand-accent text-white text-sm font-bold uppercase tracking-widest hover:bg-brand-dark transition text-center">
+                        Débuter une collaboration
+                    </a>
+                    <a href="#services" class="px-8 py-4 border border-neutral-200 text-sm font-bold uppercase tracking-widest hover:bg-neutral-50 transition text-center">
+                        Nos Expertises
+                    </a>
+                </div>
+            </div>
 
-          <!-- Logo mobile (à remplacer idéalement par le vrai logo Axis) -->
-          <a class="lg:hidden text-gray-600 text-2xl leading-none" href="#">
-            <img class="h-8" src="plain-assets/logos/plain-gray.svg" alt="Axis CPA" width="auto">
-          </a>
+            <div class="lg:col-span-5 relative">
+                <div class="relative h-[500px] lg:h-[700px] w-full overflow-hidden rounded-sm shadow-2xl group">
+                    <img 
+                        src="/public/amelie.webp" 
+                        alt="Axis CPA Office" 
+                        class="w-full h-full object-cover transition duration-1000 scale-105 group-hover:scale-100"
+                    >
+                    <div class="absolute inset-0 border-[15px] border-white/10 pointer-events-none"></div>
+                </div>
+                
+                <div class="absolute -bottom-6 -left-6 bg-white p-6 shadow-xl hidden lg:block">
+                    <p class="text-brand-accent font-bold text-sm tracking-tighter uppercase">Amélie Thiffault</p>
+                    <div class="h-px w-8 bg-neutral-200 my-2"></div>
+                    <p class="text-neutral-400 text-[10px] uppercase tracking-widest leading-tight">Fondatrice et CPA</p>
+                </div>
+            </div>
 
-          <!-- Bouton burger mobile -->
-          <div class="lg:hidden ml-auto">
-            <button x-on:click="mobileNavOpen = !mobileNavOpen"
-                    class="block text-gray-500 hover:text-gray-500 focus:outline-none">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor " viewbox="0 0 20 20">
-                <title>Mobile menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-              </svg>
-            </button>
-          </div>
+        </div>
+    </div>
+</section>
 
-          <!-- Menu desktop -->
-          <div class="hidden lg:flex w-auto lg:w-3/5 lg:pl-16 ml-auto">
-            <ul class="flex items-center space-x-12">
-              <!-- Liens d’ancrage vers sections -->
-              <li><a class="text-sm hover:text-gray-700 font-medium" href="#services">Services</a></li>
-              <li><a class="text-sm hover:text-gray-700 font-medium" href="#about">À propos</a></li>
-              <li><a class="text-sm hover:text-gray-700 font-medium" href="#faq">FAQ</a></li>
-              <li><a class="text-sm hover:text-gray-700 font-medium" href="#contact">Contact</a></li>
-            </ul>
+    <section id="services" class="py-24 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="mb-16">
+                <h2 class="text-3xl lg:text-4xl font-semibold mb-4">Expertise et Conseil</h2>
+                <div class="h-1 w-12 bg-brand-accent"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="group cursor-default">
+                    <span class="text-4xl font-light text-neutral-300 group-hover:text-brand-accent transition duration-500">01</span>
+                    <h3 class="text-xl font-bold mt-4 mb-4 uppercase tracking-tight">Certification</h3>
+                    <p class="text-neutral-500 leading-relaxed">
+                        Audits, missions d'examen et avis aux lecteurs. Nous assurons l'intégrité de vos états financiers avec une rigueur absolue.
+                    </p>
+                </div>
+                <div class="group cursor-default">
+                    <span class="text-4xl font-light text-neutral-300 group-hover:text-brand-accent transition duration-500">02</span>
+                    <h3 class="text-xl font-bold mt-4 mb-4 uppercase tracking-tight">Fiscalité</h3>
+                    <p class="text-neutral-500 leading-relaxed">
+                        Optimisation fiscale pour entreprises et particuliers. Stratégies sur mesure pour maximiser votre valeur nette.
+                    </p>
+                </div>
+                <div class="group cursor-default">
+                    <span class="text-4xl font-light text-neutral-300 group-hover:text-brand-accent transition duration-500">03</span>
+                    <h3 class="text-xl font-bold mt-4 mb-4 uppercase tracking-tight">Gestion & Stratégie</h3>
+                    <p class="text-neutral-500 leading-relaxed">
+                        Accompagnement dans la croissance, prévisions financières et conseils stratégiques pour vos projets d'envergure.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Bouton “kebab menu” (icône 3 points) — décoratif / optionnel -->
-            <button class="inline-block ml-auto text-gray-500 hover:text-gray-700">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
-              </svg>
-            </button>
-          </div>
-        </nav>
-
-        <!-- ================= HERO CONTENT ================= -->
-        <div class="w-full lg:w-3/5 lg:pl-16 ml-auto">
-          <div class="mt-10 lg:mt-20 mb-20">
-
-            <!-- Titre principal (idéalement H1) -->
-            <h1 class="max-w-sm mb-8 text-3xl leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight font-bold font-heading">
-              Le nouveau standard de la gestion comptable.
-            </h1>
-
-            <!-- Sous-texte -->
-            <p class="max-w-lg mb-8 text-base leading-relaxed lg:text-xl lg:leading-relaxed text-gray-500">
-              On simplifie ton quotidien en modernisant ta comptabilité et ta gestion avec des outils clairs et efficaces.
-            </p>
-
-            <!-- CTA (boutons) -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="relative">
+                <div class="aspect-square bg-neutral-100 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" alt="Office" class="object-cover w-full h-full grayscale hover:grayscale-0 transition duration-700">
+                </div>
+                <div class="absolute -bottom-6 -right-6 bg-brand-accent p-8 hidden md:block">
+                    <p class="text-white font-bold text-4xl italic leading-none">15+</p>
+                    <p class="text-white text-xs uppercase tracking-widest mt-2 font-medium">Années d'excellence</p>
+                </div>
+            </div>
             <div>
-              <a class="block md:inline-block px-5 py-3 md:mr-3 mb-3 md:mb-0 text-sm text-center bg-gray-500 hover:bg-gray-600 text-white font-semibold border border-gray-500 hover:border-gray-600 rounded transition duration-200"
-                 href="#contact">
-                Écris-nous
-              </a>
-              <a class="block md:inline-block px-5 py-3 text-sm text-center font-semibold text-gray-500 hover:text-white hover:bg-gray-500 border border-gray-500 hover:border-gray-600 rounded transition duration-200"
-                 href="#services">
-                Nos services
-              </a>
+                <h2 class="text-4xl font-semibold mb-8 leading-tight italic">L'intelligence au service de vos chiffres.</h2>
+                <p class="text-lg text-neutral-600 mb-6">
+                    Chez Axis CPA, nous croyons que la comptabilité n'est pas qu'une question de colonnes et de chiffres. C'est le langage de votre réussite.
+                </p>
+                <p class="text-neutral-500 mb-8">
+                    Basés à Gatineau, nous accompagnons les entrepreneurs québécois avec une vision qui dépasse l'aspect transactionnel pour devenir de véritables partenaires d'affaires.
+                </p>
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-center space-x-3 text-sm font-medium">
+                        <svg class="w-5 h-5 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        <span>Précision technologique</span>
+                    </li>
+                    <li class="flex items-center space-x-3 text-sm font-medium">
+                        <svg class="w-5 h-5 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                        <span>Confidentialité absolue</span>
+                    </li>
+                </ul>
             </div>
-
-          </div>
-
-          <!-- Logos/partenaires (placeholders) -->
-          <div class="flex flex-wrap items-center justify-center -mx-2">
-            <div class="w-1/2 md:w-1/3 lg:w-1/5 px-2 mb-12 text-center lg:text-left">
-              <img class="inline-block h-6" src="plain-assets/logos/jiggle.svg" alt="">
-            </div>
-            <div class="w-1/2 md:w-1/3 lg:w-1/5 px-2 mb-12 text-center lg:text-left">
-              <img class="inline-block h-6" src="plain-assets/logos/symtric.svg" alt="">
-            </div>
-            <div class="w-1/2 md:w-1/3 lg:w-1/5 px-2 mb-12 text-center lg:text-left">
-              <img class="inline-block h-6" src="plain-assets/logos/wishelp.svg" alt="">
-            </div>
-            <div class="w-1/2 md:w-1/3 lg:w-1/5 px-2 mb-12 text-center lg:text-left">
-              <img class="inline-block h-6" src="plain-assets/logos/resecurb.svg" alt="">
-            </div>
-            <div class="w-1/2 md:w-1/3 lg:w-1/5 px-2 mb-12 text-center lg:text-left">
-              <img class="inline-block h-6" src="plain-assets/logos/welytics.svg" alt="">
-            </div>
-          </div>
-
         </div>
-      </div>
-
-      <!-- ================= MOBILE MENU DRAWER ================= -->
-      <div :class="{'block': mobileNavOpen, 'hidden': !mobileNavOpen}"
-           class="hidden fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
-
-        <!-- Overlay -->
-        <div x-on:click="mobileNavOpen = !mobileNavOpen"
-             class="fixed inset-0 bg-gray-800 opacity-25"></div>
-
-        <!-- Menu panel -->
-        <nav class="relative flex flex-col py-6 px-6 w-full h-full bg-white border-r overflow-y-auto">
-          <div class="flex items-center mb-12">
-
-            <!-- Logo -->
-            <a class="mr-auto text-2xl font-semibold leading-none" href="#">
-              <img class="h-8" src="plain-assets/logos/plain-gray.svg" alt="" width="auto">
-            </a>
-
-            <!-- Close -->
-            <button x-on:click="mobileNavOpen = !mobileNavOpen">
-              <svg xmlns="http://www.w3.org/2000/svg"
-                   class="h-6 w-6 cursor-pointer hover:text-gray-500"
-                   fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-
-          <!-- Liens -->
-          <div>
-            <ul>
-              <li class="mb-1"><a class="block p-4 text-sm font-semibold hover:bg-gray-50 hover:text-gray-500 rounded" href="#services">Services</a></li>
-              <li class="mb-1"><a class="block p-4 text-sm font-semibold hover:bg-gray-50 hover:text-gray-500 rounded" href="#about">À propos</a></li>
-              <li class="mb-1"><a class="block p-4 text-sm font-semibold hover:bg-gray-50 hover:text-gray-500 rounded" href="#faq">FAQ</a></li>
-              <li class="mb-1"><a class="block p-4 text-sm font-semibold hover:bg-gray-50 hover:text-gray-500 rounded" href="#contact">Contact</a></li>
-            </ul>
-          </div>
-
-          <!-- Footer mobile nav -->
-          <div class="mt-auto">
-            <p class="mt-6 mb-4 text-sm text-center text-gray-500">
-              <span>© 2025 Axis CPA Inc. Tous droits réservés.</span>
-            </p>
-          </div>
-        </nav>
-      </div>
-
     </section>
 
-
-    <!-- ======================================================
-         SECTION 2 : SERVICES
-         ====================================================== -->
-    <section id="services" class="bg-white py-24">
-      <div class="max-w-6xl mx-auto px-6">
-
-        <!-- En-tête de section -->
-        <div class="text-center mb-16">
-          <p class="text-emerald-600 font-medium mb-3">Nos offres</p>
-          <h2 class="text-3xl md:text-4xl font-heading font-semibold text-slate-900">Services</h2>
+    <section id="contact" class="py-24 bg-brand-dark text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-4xl font-semibold mb-6">Parlons de votre prochain chapitre.</h2>
+                    <p class="text-neutral-400 mb-12 max-w-md">
+                        Que vous soyez en phase de démarrage ou en pleine expansion, notre équipe est prête à optimiser votre structure financière.
+                    </p>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-xs uppercase tracking-widest text-neutral-500 mb-1">Localisation</p>
+                            <p class="text-lg">Gatineau, QC</p>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-widest text-neutral-500 mb-1">Courriel</p>
+                            <p class="text-lg">contact@axiscpa.ca</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 lg:p-12 text-neutral-900">
+                    <form action="#" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="text-xs font-bold uppercase tracking-wider mb-2 block">Nom complet</label>
+                                <input type="text" class="w-full border-b border-neutral-200 py-3 focus:border-brand-accent outline-none transition bg-transparent" placeholder="Jean Tremblay">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold uppercase tracking-wider mb-2 block">Entreprise</label>
+                                <input type="text" class="w-full border-b border-neutral-200 py-3 focus:border-brand-accent outline-none transition bg-transparent" placeholder="Nom de votre cie">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold uppercase tracking-wider mb-2 block">Service souhaité</label>
+                            <select class="w-full border-b border-neutral-200 py-3 focus:border-brand-accent outline-none transition bg-transparent">
+                                <option>Fiscalité</option>
+                                <option>Certification</option>
+                                <option>Tenue de livres</option>
+                                <option>Autre</option>
+                            </select>
+                        </div>
+                        <button class="w-full py-4 bg-brand-dark text-white text-xs font-bold uppercase tracking-widest hover:bg-brand-accent transition duration-300">
+                            Envoyer la demande
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <!-- Grille 3 colonnes -->
-        <div class="grid md:grid-cols-3 gap-8">
-
-          <!-- Card 1 -->
-          <div class="group p-8 rounded-2xl border border-slate-100 hover:border-slate-200 hover:shadow-lg hover:shadow-slate-100/50 transition-all">
-            <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors">
-              <svg class="w-7 h-7 text-slate-600 group-hover:text-emerald-600 transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-slate-900 mb-3 font-heading">Tenue de livres infonuagique</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Ta comptabilité, à jour et sans tracas. On s'occupe de ta tenue de livres en 100 % infonuagique, de tes obligations fiscales et on t'accompagne pour lire et comprendre tes résultats.
-            </p>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="group p-8 rounded-2xl border border-slate-100 hover:border-slate-200 hover:shadow-lg hover:shadow-slate-100/50 transition-all">
-            <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors">
-              <svg class="w-7 h-7 text-slate-600 group-hover:text-emerald-600 transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-slate-900 mb-3 font-heading">Transformation numérique</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Passe au numérique, simplement. Migration vers QuickBooks, DEXT et ClickUp. On optimise tes outils et tes processus pour une gestion moderne, efficace et sans papier.
-            </p>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="group p-8 rounded-2xl border border-slate-100 hover:border-slate-200 hover:shadow-lg hover:shadow-slate-100/50 transition-all">
-            <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-100 transition-colors">
-              <svg class="w-7 h-7 text-slate-600 group-hover:text-emerald-600 transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold text-slate-900 mb-3 font-heading">Formations comptabilité et logiciels</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Gagne en autonomie avec les bons outils. Formations pratiques sur QuickBooks, DEXT et ClickUp, adaptées à ta réalité. Pour toi et ton équipe.
-            </p>
-          </div>
-
-        </div>
-      </div>
     </section>
 
-
-    <!-- ======================================================
-         SECTION 3 : FAQ (Tabs + Accordions) — Alpine.js
-         ====================================================== -->
-    <section id="faq" data-from-ai="false" class="py-20 bg-white" x-data="{ tab: 'general' }">
-      <div class="container px-4 mx-auto">
-
-        <!-- En-tête FAQ -->
-        <div class="max-w-lg lg:max-w-2xl mx-auto text-center mb-12">
-          <span class="text-xs font-semibold text-emerald-600 uppercase">FAQ</span>
-          <h2 class="mt-2 mb-4 text-3xl leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight font-bold font-heading text-slate-900">
-            <span>Plus de questions?</span><br>
-            <span>Consulte notre FAQ</span>
-          </h2>
-          <p class="text-base leading-relaxed lg:text-xl lg:leading-relaxed text-slate-600">
-            Trouve des réponses aux questions fréquentes sur nos services et notre accompagnement.
-          </p>
-        </div>
-
-        <!-- Onglets FAQ -->
-        <div class="text-center mb-2 md:mb-4">
-          <button x-on:click="tab='general'"
-                  class="text-lg pb-2 mb-4 md:mb-0 mr-4 lg:mr-12 border-b-4 text-slate-900 font-medium transition-colors"
-                  :class="{ 'border-slate-900': tab=='general', 'border-transparent hover:border-slate-300': tab!='general' }">
-            Général
-          </button>
-
-          <button x-on:click="tab='taxes'"
-                  class="text-lg pb-2 mb-4 md:mb-0 mr-4 lg:mr-12 border-b-4 text-slate-900 font-medium transition-colors"
-                  :class="{ 'border-slate-900': tab=='taxes', 'border-transparent hover:border-slate-300': tab!='taxes' }">
-            Fiscalité
-          </button>
-
-          <button x-on:click="tab='bookkeeping'"
-                  class="text-lg pb-2 mb-4 md:mb-0 mr-4 lg:mr-12 border-b-4 text-slate-900 font-medium transition-colors"
-                  :class="{ 'border-slate-900': tab=='bookkeeping', 'border-transparent hover:border-slate-300': tab!='bookkeeping' }">
-            Tenue de livres
-          </button>
-
-          <button x-on:click="tab='advisory'"
-                  class="text-lg pb-2 border-b-4 text-slate-900 font-medium transition-colors"
-                  :class="{ 'border-slate-900': tab=='advisory', 'border-transparent hover:border-slate-300': tab!='advisory' }">
-            Formations
-          </button>
-        </div>
-
-        <!-- Contenu FAQ (accordéons) -->
-        <div class="max-w-2xl mx-auto">
-          <ul>
-
-            <!-- Question 1 -->
-            <li class="px-6 py-8 border-b border-slate-100" x-data="{ accordion: false }">
-              <button class="group w-full flex justify-between items-center text-left font-bold font-heading"
-                      x-on:click="accordion = !accordion">
-                <span class="group-hover:text-slate-600 text-lg font-bold font-heading text-slate-900">
-                  Comment me préparer à ma première consultation?
-                </span>
-                <span :class="{'rotate-180': accordion, 'rotate-0': !accordion }" class="inline-block transform">
-                  <svg xmlns="http://www.w3.org/2000/svg"
-                       class="flex-shrink-0 w-4 h-4 ml-2 text-slate-600"
-                       fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </span>
-              </button>
-
-              <!-- Contenu accordion (hauteur calculée via scrollHeight) -->
-              <div x-ref="container"
-                   :style="accordion ? 'height: ' + $refs.container.scrollHeight + 'px' : ''"
-                   class="overflow-hidden h-0 duration-500">
-                <p class="mt-2 text-lg text-slate-600 leading-loose">
-                  Apporte ta déclaration de l'année précédente, tes états financiers récents et tout document pertinent (revenus, dépenses, investissements). Bien organisés, ils nous permettent de te proposer une stratégie fiscale précise et adaptée.
-                </p>
-              </div>
-            </li>
-
-            <!-- Question 2 -->
-            <li class="px-6 py-8 border-b border-slate-100" x-data="{ accordion: false }">
-              <button class="group w-full flex justify-between items-center text-left font-bold font-heading"
-                      x-on:click="accordion = !accordion">
-                <span class="group-hover:text-slate-600 text-lg font-bold font-heading text-slate-900">
-                  Quels documents fournir pour la préparation fiscale?
-                </span>
-                <span :class="{'rotate-180': accordion, 'rotate-0': !accordion }" class="inline-block transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 ml-2 text-slate-600" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </span>
-              </button>
-              <div x-ref="container"
-                   :style="accordion ? 'height: ' + $refs.container.scrollHeight + 'px' : ''"
-                   class="overflow-hidden h-0 duration-500">
-                <p class="mt-2 text-lg text-slate-600 leading-loose">
-                  Relevés d'emploi (T4), revenus additionnels, reçus de dons, frais médicaux, intérêts hypothécaires et tout document lié aux déductions. Pour les travailleurs autonomes et entreprises : états des résultats, bilans et relevés détaillés de ta tenue de livres.
-                </p>
-              </div>
-            </li>
-
-            <!-- Question 3 -->
-            <li class="px-6 py-8 border-b border-slate-100" x-data="{ accordion: false }">
-              <button class="group w-full flex justify-between items-center text-left font-bold font-heading"
-                      x-on:click="accordion = !accordion">
-                <span class="group-hover:text-slate-600 text-lg font-bold font-heading text-slate-900">
-                  Pouvez-vous m'aider à réduire mon fardeau fiscal?
-                </span>
-                <span :class="{'rotate-180': accordion, 'rotate-0': !accordion }" class="inline-block transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 ml-2 text-slate-600" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </span>
-              </button>
-              <div x-ref="container"
-                   :style="accordion ? 'height: ' + $refs.container.scrollHeight + 'px' : ''"
-                   class="overflow-hidden h-0 duration-500">
-                <p class="mt-2 text-lg text-slate-600 leading-loose">
-                  Oui. On analyse ta situation tout au long de l'année pour repérer déductions et crédits auxquels tu as droit. On élabore des stratégies personnalisées qui maximisent tes économies tout en respectant les lois et règlements fiscaux en vigueur.
-                </p>
-              </div>
-            </li>
-
-            <!-- Question 4 -->
-            <li class="px-6 py-8 border-b border-slate-100" x-data="{ accordion: false }">
-              <button class="group w-full flex justify-between items-center text-left font-bold font-heading"
-                      x-on:click="accordion = !accordion">
-                <span class="group-hover:text-slate-600 text-lg font-bold font-heading text-slate-900">
-                  À quelle fréquence faire la tenue de livres?
-                </span>
-                <span :class="{'rotate-180': accordion, 'rotate-0': !accordion }" class="inline-block transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 ml-2 text-slate-600" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </span>
-              </button>
-              <div x-ref="container"
-                   :style="accordion ? 'height: ' + $refs.container.scrollHeight + 'px' : ''"
-                   class="overflow-hidden h-0 duration-500">
-                <p class="mt-2 text-lg text-slate-600 leading-loose">
-                  On recommande une tenue à jour régulière (idéalement mensuelle) pour repérer les erreurs tôt et garder des états financiers fiables. Notre tenue de livres infonuagique inclut la réconciliation des comptes bancaires et des écritures pour des états toujours à jour.
-                </p>
-              </div>
-            </li>
-
-            <!-- Question 5 -->
-            <li class="px-6 py-8 border-b border-slate-100" x-data="{ accordion: false }">
-              <button class="group w-full flex justify-between items-center text-left font-bold font-heading"
-                      x-on:click="accordion = !accordion">
-                <span class="group-hover:text-slate-600 text-lg font-bold font-heading text-slate-900">
-                  Offrez-vous un accompagnement à l'année?
-                </span>
-                <span :class="{'rotate-180': accordion, 'rotate-0': !accordion }" class="inline-block transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 ml-2 text-slate-600" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </span>
-              </button>
-              <div x-ref="container"
-                   :style="accordion ? 'height: ' + $refs.container.scrollHeight + 'px' : ''"
-                   class="overflow-hidden h-0 duration-500">
-                <p class="mt-2 text-lg text-slate-600 leading-loose">
-                  Oui. On t'accompagne tout au long de l'année : revues régulières, suivi de tes résultats, ajustement des stratégies et conseils pour tes décisions (investissements, croissance, objectifs à long terme) afin de maximiser ta réussite.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ======================================================
-         SECTION 4 : CONTACT (infos + formulaire)
-         ====================================================== -->
-    <section id="contact" class="bg-slate-50 py-24">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-16">
-
-          <!-- Bloc informations (texte + coordonnées) -->
-          <div class="space-y-8">
-            <p class="text-emerald-600 font-medium">Contact</p>
-            <h2 class="text-3xl md:text-4xl font-heading font-semibold text-slate-900">Prêt à simplifier ta comptabilité?</h2>
-            <p class="text-slate-600 text-lg">Écris-nous pour une consultation ou pour en savoir plus sur nos services. Gatineau, Québec.</p>
-
-            <!-- Coordonnées -->
-            <div class="space-y-6 pt-4">
-
-              <!-- Téléphone -->
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                  <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="font-medium text-slate-900">Téléphone</p>
-                  <p class="text-slate-600">+1 (819) 918-0603</p>
-                </div>
-              </div>
-
-              <!-- Courriel -->
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                  <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="font-medium text-slate-900">Courriel</p>
-                  <p class="text-slate-600">info@axiscpa.ca</p>
-                </div>
-              </div>
-
-              <!-- Bureau -->
-              <div class="flex items-start gap-4">
-                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                  <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="font-medium text-slate-900">Bureau</p>
-                  <p class="text-slate-600">Gatineau, Québec</p>
-                </div>
-              </div>
-
+    <footer class="py-12 bg-white border-t border-neutral-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <span class="text-xl font-bold tracking-tighter uppercase italic">Axis<span class="text-brand-accent">.</span>CPA</span>
             </div>
-          </div>
-
-          <!-- Bloc formulaire -->
-          <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50 border border-slate-100">
-            <!-- NOTE : ajouter action/méthode selon ton système (Formspree, Basin, etc.) -->
-            <form class="space-y-6 contact-form">
-
-              <!-- Ligne 2 colonnes -->
-              <div class="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label class="block text-sm font-medium text-slate-700 mb-2">Prénom</label>
-                  <input type="text"
-                         class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
-                         placeholder="Marie">
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-slate-700 mb-2">Nom</label>
-                  <input type="text"
-                         class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
-                         placeholder="Tremblay">
-                </div>
-              </div>
-
-              <!-- Courriel -->
-              <div>
-                <label class="block text-sm font-medium text-slate-700 mb-2">Courriel</label>
-                <input type="email"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all"
-                       placeholder="marie@exemple.ca">
-              </div>
-
-              <!-- Message -->
-              <div>
-                <label class="block text-sm font-medium text-slate-700 mb-2">Comment pouvons-nous t'aider?</label>
-                <textarea rows="4"
-                          class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all resize-none"
-                          placeholder="Décris tes besoins en comptabilité ou en gestion..."></textarea>
-              </div>
-
-              <!-- Submit -->
-              <button type="submit"
-                      class="w-full py-3.5 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-all hover:shadow-lg font-medium">
-                Envoyer
-              </button>
-
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ======================================================
-         FOOTER
-         ====================================================== -->
-    <footer class="bg-slate-900 py-12">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-
-          <!-- Branding -->
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 6l9-4 9 4v12l-9 4-9-4V6z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v20"></path>
-              </svg>
+            <div class="text-neutral-400 text-xs tracking-widest uppercase">
+                &copy; 2026 Axis CPA Inc. Tous droits réservés.
             </div>
-            <span class="text-xl font-semibold text-white font-heading">Axis CPA</span>
-          </div>
-
-          <!-- Liens -->
-          <div class="flex items-center gap-8">
-            <a href="#services" class="text-slate-400 hover:text-white transition-colors">Services</a>
-            <a href="#about" class="text-slate-400 hover:text-white transition-colors">À propos</a>
-            <a href="#contact" class="text-slate-400 hover:text-white transition-colors">Contact</a>
-          </div>
-
-          <!-- Copyright -->
-          <p class="text-slate-500 text-sm">
-            © 2025 Axis CPA Inc. Tous droits réservés. Gatineau, Québec.
-          </p>
-
+            <div class="mt-6 md:mt-0 flex space-x-6 text-xs font-bold uppercase tracking-widest">
+                <a href="#" class="hover:text-brand-accent transition">LinkedIn</a>
+                <a href="#" class="hover:text-brand-accent transition">Confidentialité</a>
+            </div>
         </div>
-      </div>
     </footer>
 
-  </div>
-
-  <!-- ======================================================
-       JS GLOBAL (Shuffle bundle / scripts)
-       ====================================================== -->
-  <script type="text/javascript" src="js/global-17148.js?v=1770742668"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
 </body>
 </html>
