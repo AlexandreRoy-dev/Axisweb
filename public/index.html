@@ -67,12 +67,30 @@
             </div>
 
             <div class="md:hidden flex items-center">
-                <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-neutral-900">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-neutral-900 outline-none">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        <path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
+        </div>
+    </div>
+
+    <div x-show="mobileMenuOpen" 
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 -translate-y-4"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-150"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-4"
+         x-cloak 
+         class="md:hidden bg-white border-b border-neutral-200 px-6 py-8 shadow-xl">
+        <div class="flex flex-col space-y-6 text-center text-sm font-bold uppercase tracking-widest">
+            <a @click="mobileMenuOpen = false" href="#services" class="hover:text-brand-accent">Services</a>
+            <a @click="mobileMenuOpen = false" href="#about" class="hover:text-brand-accent">À Propos</a>
+            <a @click="mobileMenuOpen = false" href="#faq" class="hover:text-brand-accent">F.A.Q.</a>
+            <a @click="mobileMenuOpen = false" href="#contact" class="text-brand-accent">Contact</a>
         </div>
     </div>
 </nav>
@@ -122,136 +140,418 @@
     </div>
 </section>
 
-    <section id="services" class="py-24 bg-neutral-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="mb-16">
-                <h2 class="text-3xl lg:text-4xl font-semibold mb-4">Expertise et Conseil</h2>
-                <div class="h-1 w-12 bg-brand-accent"></div>
+<section id="services" class="py-24 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="mb-20 text-center lg:text-left">
+            <h2 class="text-3xl lg:text-4xl font-semibold mb-4 uppercase tracking-widest">Nos Services</h2>
+            <div class="h-1 w-12 bg-brand-accent mx-auto lg:mx-0"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="group bg-white p-10 border border-neutral-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full">
+                <div class="flex justify-between items-start mb-8">
+                    <span class="text-5xl font-light text-neutral-100 group-hover:text-brand-accent/20 transition-colors duration-500 italic">01</span>
+                    <div class="w-2 h-2 rounded-full bg-brand-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <h3 class="text-xl font-bold mb-2 uppercase tracking-tight text-neutral-900">Tenue de livres infonuagique</h3>
+                <p class="text-brand-accent italic text-sm mb-5 font-medium">Ta comptabilité, à jour et sans tracas.</p>
+                <p class="text-neutral-500 leading-relaxed mb-8 flex-grow text-sm">
+                    On s'occupe de ta tenue de livres en 100 % infonuagique, de tes obligations fiscales s'en découlant et on t'accompagne pour lire et comprendre tes résultats.
+                </p>
+                <div class="pt-6 border-t border-neutral-50">
+                    <a href="#contact" class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-brand-accent transition-colors duration-300 inline-flex items-center">
+                        Démarrer mon projet 
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="group cursor-default">
-                    <span class="text-4xl font-light text-neutral-300 group-hover:text-brand-accent transition duration-500">01</span>
-                    <h3 class="text-xl font-bold mt-4 mb-4 uppercase tracking-tight">Certification</h3>
-                    <p class="text-neutral-500 leading-relaxed">
-                        Audits, missions d'examen et avis aux lecteurs. Nous assurons l'intégrité de vos états financiers avec une rigueur absolue.
-                    </p>
+
+            <div class="group bg-white p-10 border border-neutral-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full">
+                <div class="flex justify-between items-start mb-8">
+                    <span class="text-5xl font-light text-neutral-100 group-hover:text-brand-accent/20 transition-colors duration-500 italic">02</span>
+                    <div class="w-2 h-2 rounded-full bg-brand-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
-                <div class="group cursor-default">
-                    <span class="text-4xl font-light text-neutral-300 group-hover:text-brand-accent transition duration-500">02</span>
-                    <h3 class="text-xl font-bold mt-4 mb-4 uppercase tracking-tight">Fiscalité</h3>
-                    <p class="text-neutral-500 leading-relaxed">
-                        Optimisation fiscale pour entreprises et particuliers. Stratégies sur mesure pour maximiser votre valeur nette.
-                    </p>
+                <h3 class="text-xl font-bold mb-2 uppercase tracking-tight text-neutral-900">Transformation numérique</h3>
+                <p class="text-brand-accent italic text-sm mb-5 font-medium">Passe au numérique, simplement.</p>
+                <p class="text-neutral-500 leading-relaxed mb-8 flex-grow text-sm">
+                    Migration vers QuickBooks, DEXT et ClickUp. On optimise tes outils et tes processus pour une gestion moderne, efficace et sans papier.
+                </p>
+                <div class="pt-6 border-t border-neutral-50">
+                    <a href="#contact" class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-brand-accent transition-colors duration-300 inline-flex items-center">
+                        Optimiser ma gestion
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
                 </div>
-                <div class="group cursor-default">
-                    <span class="text-4xl font-light text-neutral-300 group-hover:text-brand-accent transition duration-500">03</span>
-                    <h3 class="text-xl font-bold mt-4 mb-4 uppercase tracking-tight">Gestion & Stratégie</h3>
-                    <p class="text-neutral-500 leading-relaxed">
-                        Accompagnement dans la croissance, prévisions financières et conseils stratégiques pour vos projets d'envergure.
-                    </p>
+            </div>
+
+            <div class="group bg-white p-10 border border-neutral-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full">
+                <div class="flex justify-between items-start mb-8">
+                    <span class="text-5xl font-light text-neutral-100 group-hover:text-brand-accent/20 transition-colors duration-500 italic">03</span>
+                    <div class="w-2 h-2 rounded-full bg-brand-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <h3 class="text-xl font-bold mb-2 uppercase tracking-tight text-neutral-900 text-balance">Formations comptabilité et logiciels</h3>
+                <p class="text-brand-accent italic text-sm mb-5 font-medium">Gagne en autonomie avec les bons outils.</p>
+                <p class="text-neutral-500 leading-relaxed mb-8 flex-grow text-sm">
+                    Formations pratiques en perfectionnement de comptabilité et sur QuickBooks, DEXT et ClickUp, adaptées à ta réalité. Pour toi et ton équipe.
+                </p>
+                <div class="pt-6 border-t border-neutral-50">
+                    <a href="#contact" class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-brand-accent transition-colors duration-300 inline-flex items-center">
+                        Réserver une formation
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="about" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<section id="about" class="py-24 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
             <div class="relative">
-                <div class="aspect-square bg-neutral-100 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" alt="Office" class="object-cover w-full h-full grayscale hover:grayscale-0 transition duration-700">
+                <div class="aspect-[4/5] bg-neutral-100 overflow-hidden rounded-sm">
+                    <img src="about.png" alt="Architecture Axis" class="object-cover w-full h-full ">
                 </div>
-                <div class="absolute -bottom-6 -right-6 bg-brand-accent p-8 hidden md:block">
-                    <p class="text-white font-bold text-4xl italic leading-none">15+</p>
-                    <p class="text-white text-xs uppercase tracking-widest mt-2 font-medium">Années d'excellence</p>
+                <div class="absolute -bottom-6 -right-6 bg-brand-accent p-8 hidden md:block shadow-xl">
+                    <p class="text-white font-bold text-3xl italic leading-none">L'Axe</p>
+                    <p class="text-white text-[10px] uppercase tracking-[0.2em] mt-2 font-medium">Le centre de votre réussite</p>
                 </div>
             </div>
-            <div>
-                <h2 class="text-4xl font-semibold mb-8 leading-tight italic">L'intelligence au service de vos chiffres.</h2>
-                <p class="text-lg text-neutral-600 mb-6">
-                    Chez Axis CPA, nous croyons que la comptabilité n'est pas qu'une question de colonnes et de chiffres. C'est le langage de votre réussite.
-                </p>
-                <p class="text-neutral-500 mb-8">
-                    Basés à Gatineau, nous accompagnons les entrepreneurs québécois avec une vision qui dépasse l'aspect transactionnel pour devenir de véritables partenaires d'affaires.
-                </p>
-                <ul class="space-y-4 mb-10">
-                    <li class="flex items-center space-x-3 text-sm font-medium">
-                        <svg class="w-5 h-5 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
-                        <span>Précision technologique</span>
-                    </li>
-                    <li class="flex items-center space-x-3 text-sm font-medium">
-                        <svg class="w-5 h-5 text-brand-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
-                        <span>Confidentialité absolue</span>
-                    </li>
-                </ul>
+           <div>
+    <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-brand-accent mb-6">Pourquoi Axis ?</h2>
+    <h3 class="text-4xl lg:text-5xl font-semibold mb-8 leading-tight italic">L'axe qui stabilise votre <span class="font-light not-italic text-neutral-400">croissance.</span></h3>
+    <p class="text-lg text-neutral-600 mb-6 leading-relaxed">
+        Sans axe, une roue ne tourne pas droite. Votre entreprise a besoin d’un centre solide pour avancer avec précision.
+    </p>
+    <p class="text-neutral-500 mb-10 leading-relaxed">
+        Chez Axis CPA Inc., nous sommes ce point central. Nous structurons, simplifions et faisons évoluer les entreprises du Québec et de l’Ontario avec un accompagnement humain et une rigueur absolue.
+    </p>
+    
+    <div class="space-y-10">
+        <div class="flex items-center space-x-4">
+            <div class="h-px w-12 bg-brand-accent"></div>
+            <span class="text-xs font-bold uppercase tracking-widest text-neutral-900">Une vision 360° du monde des affaires</span>
+        </div>
+        
+        <div>
+            <a href="#contact" class="inline-block px-10 py-4 border border-neutral-200 text-xs font-bold uppercase tracking-[0.2em] text-neutral-900 hover:bg-brand-dark hover:text-white hover:border-brand-dark transition-all duration-300">
+                Découvrir notre approche
+            </a>
+        </div>
+    </div>
+</div>
+        </div>
+
+        <div class="mb-32">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <h2 class="text-2xl font-bold uppercase tracking-widest mb-4">Nos Valeurs</h2>
+                <p class="text-neutral-400 text-sm italic">Notre boussole, notre ADN, votre garantie.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+                <div class="text-center p-6 border-x border-transparent hover:border-neutral-100 transition-all group">
+                    <span class="block text-brand-accent text-xl mb-4 group-hover:scale-110 transition-transform italic font-light">01.</span>
+                    <h4 class="font-bold uppercase tracking-tighter mb-3">Transparence</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">L'axe de la clarté. Dire les choses comme elles sont.</p>
+                </div>
+                <div class="text-center p-6 border-x border-neutral-100 group">
+                    <span class="block text-brand-accent text-xl mb-4 group-hover:scale-110 transition-transform italic font-light">02.</span>
+                    <h4 class="font-bold uppercase tracking-tighter mb-3">Fiabilité</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">L'axe de la constance. Respecter nos engagements.</p>
+                </div>
+                <div class="text-center p-6 border-x border-neutral-100 group">
+                    <span class="block text-brand-accent text-xl mb-4 group-hover:scale-110 transition-transform italic font-light">03.</span>
+                    <h4 class="font-bold uppercase tracking-tighter mb-3">Engagement</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">L'axe du soutien. S’impliquer pleinement avec vous.</p>
+                </div>
+                <div class="text-center p-6 border-x border-neutral-100 group">
+                    <span class="block text-brand-accent text-xl mb-4 group-hover:scale-110 transition-transform italic font-light">04.</span>
+                    <h4 class="font-bold uppercase tracking-tighter mb-3">Innovation</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">L'axe du progrès. Améliorer sans cesse nos méthodes.</p>
+                </div>
+                <div class="text-center p-6 border-x border-transparent hover:border-neutral-100 group">
+                    <span class="block text-brand-accent text-xl mb-4 group-hover:scale-110 transition-transform italic font-light">05.</span>
+                    <h4 class="font-bold uppercase tracking-tighter mb-3">Croissance</h4>
+                    <p class="text-xs text-neutral-500 leading-relaxed">L'axe de l'évolution. Célébrer chaque réussite commune.</p>
+                </div>
             </div>
         </div>
-    </section>
 
-    <section id="contact" class="py-24 bg-brand-dark text-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-4xl font-semibold mb-6">Parlons de votre prochain chapitre.</h2>
-                    <p class="text-neutral-400 mb-12 max-w-md">
-                        Que vous soyez en phase de démarrage ou en pleine expansion, notre équipe est prête à optimiser votre structure financière.
-                    </p>
-                    <div class="space-y-6">
-                        <div>
-                            <p class="text-xs uppercase tracking-widest text-neutral-500 mb-1">Localisation</p>
-                            <p class="text-lg">Gatineau, QC</p>
+        <div class="bg-neutral-900 text-white p-12 lg:p-24 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5">
+                    <div class="aspect-[3/4] overflow-hidden grayscale border border-neutral-800">
+                        <img src="/public/amelie.webp" alt="Amélie Thiffault, CPA" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="lg:col-span-7">
+                    <h2 class="text-3xl font-semibold mb-2">Amélie Thiffault, CPA</h2>
+                    <p class="text-brand-accent font-bold uppercase tracking-[0.3em] text-xs mb-8">Propriétaire & Fondatrice</p>
+                    <div class="space-y-6 text-neutral-400 leading-relaxed">
+                        <p>
+                            Travailleuse autonome dès l’âge de 16 ans, mon parcours est forgé par une vision de terrain. Après un DEC, un BAC et un DESS, j'ai obtenu mon titre de CPA en 2019.
+                        </p>
+                        <p>
+                            Forte de 4 ans en cabinet et 5 ans comme directrice finances, j'ai développé une vision 360° combinant rigueur comptable et réalité opérationnelle des PME.
+                        </p>
+                        <blockquote class="border-l-2 border-brand-accent pl-6 py-2 my-8 italic text-white text-xl font-light">
+                            "Comprendre ses chiffres, c’est reprendre le contrôle. Mon rôle est de vous donner les outils pour ne plus jamais le perdre."
+                        </blockquote>
+                        <p>
+                            En créant Axis CPA Inc. en 2025, mon but est clair : offrir des outils modernes, un langage simple et un accompagnement humain pour que votre gestion tourne rond.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="faq" class="py-24 bg-neutral-50" x-data="{ activeAccordion: null }">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12">
+        
+        <div class="text-center mb-20">
+            <h2 class="text-xs font-bold uppercase tracking-[0.4em] text-brand-accent mb-4">F.A.Q.</h2>
+            <h3 class="text-4xl lg:text-5xl font-semibold italic">Comptabilité, gestion & numérique</h3>
+        </div>
+
+        <div class="space-y-12">
+            
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-6 border-b border-neutral-200 pb-2">Tarification</h4>
+                <div class="space-y-2">
+                    <div class="bg-white border border-neutral-100 rounded-sm">
+                        <button @click="activeAccordion = (activeAccordion === 1 ? null : 1)" class="w-full flex justify-between items-center p-6 text-left outline-none">
+                            <span class="text-sm font-bold uppercase tracking-tight text-neutral-900">Combien coûte la tenue de livres pour une petite entreprise?</span>
+                            <span class="text-brand-accent transition-transform duration-300" :class="activeAccordion === 1 ? 'rotate-45' : ''">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-6-6h12"></path></svg>
+                            </span>
+                        </button>
+                        <div x-show="activeAccordion === 1" x-collapse x-cloak class="px-6 pb-6">
+                            <p class="text-sm text-neutral-500 leading-relaxed">
+                                Nos prix sont forfaitaires et dépendent des services récurrents établis ensemble. Un court appel est nécessaire pour comprendre tes besoins. Dans la plupart des cas, un frais d’évaluation et d’ouverture de dossier s’applique avant de commencer.
+                            </p>
                         </div>
-                        <div>
-                            <p class="text-xs uppercase tracking-widest text-neutral-500 mb-1">Courriel</p>
-                            <p class="text-lg">contact@axiscpa.ca</p>
+                    </div>
+                    <div class="bg-white border border-neutral-100 rounded-sm">
+                        <button @click="activeAccordion = (activeAccordion === 2 ? null : 2)" class="w-full flex justify-between items-center p-6 text-left outline-none">
+                            <span class="text-sm font-bold uppercase tracking-tight text-neutral-900">Pourquoi des frais d'évaluation et d'ouverture de dossier?</span>
+                            <span class="text-brand-accent transition-transform duration-300" :class="activeAccordion === 2 ? 'rotate-45' : ''">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-6-6h12"></path></svg>
+                            </span>
+                        </button>
+                        <div x-show="activeAccordion === 2" x-collapse x-cloak class="px-6 pb-6">
+                            <p class="text-sm text-neutral-500 leading-relaxed">
+                                Pour bien faire les choses dès le départ. On analyse ta comptabilité actuelle, tes comptes bancaires et tes obligations fiscales pour éviter les surprises et assurer une structure claire dès le jour 1.
+                            </p>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-6 border-b border-neutral-200 pb-2">Processus et collaboration</h4>
+                <div class="space-y-2">
+                    <div class="bg-white border border-neutral-100 rounded-sm">
+                        <button @click="activeAccordion = (activeAccordion === 3 ? null : 3)" class="w-full flex justify-between items-center p-6 text-left outline-none">
+                            <span class="text-sm font-bold uppercase tracking-tight text-neutral-900">Comment se passe le début de notre collaboration?</span>
+                            <span class="text-brand-accent transition-transform duration-300" :class="activeAccordion === 3 ? 'rotate-45' : ''">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-6-6h12"></path></svg>
+                            </span>
+                        </button>
+                        <div x-show="activeAccordion === 3" x-collapse x-cloak class="px-6 pb-6">
+                            <ul class="text-sm text-neutral-500 space-y-3 list-disc pl-4">
+                                <li>Court appel pour valider le "fit".</li>
+                                <li>Évaluation complète et rapport d’évaluation.</li>
+                                <li>Ouverture de dossier et planification (outils, nettoyage, formations).</li>
+                                <li>Définition du forfait une fois le dossier à jour.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-neutral-100 rounded-sm">
+                        <button @click="activeAccordion = (activeAccordion === 4 ? null : 4)" class="w-full flex justify-between items-center p-6 text-left outline-none">
+                            <span class="text-sm font-bold uppercase tracking-tight text-neutral-900">Acceptez-vous des clients partout au Québec et en Ontario?</span>
+                            <span class="text-brand-accent transition-transform duration-300" :class="activeAccordion === 4 ? 'rotate-45' : ''">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-6-6h12"></path></svg>
+                            </span>
+                        </button>
+                        <div x-show="activeAccordion === 4" x-collapse x-cloak class="px-6 pb-6">
+                            <p class="text-sm text-neutral-500 leading-relaxed">
+                                Oui. Tout se fait à distance et en infonuagique, nous pouvons donc travailler ensemble peu importe votre localisation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-6 border-b border-neutral-200 pb-2">Services offerts</h4>
+                <div class="space-y-2">
+                    <div class="bg-white border border-neutral-100 rounded-sm">
+                        <button @click="activeAccordion = (activeAccordion === 5 ? null : 5)" class="w-full flex justify-between items-center p-6 text-left outline-none">
+                            <span class="text-sm font-bold uppercase tracking-tight text-neutral-900">Faites-vous les impôts corporatifs et personnels?</span>
+                            <span class="text-brand-accent transition-transform duration-300" :class="activeAccordion === 5 ? 'rotate-45' : ''">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-6-6h12"></path></svg>
+                            </span>
+                        </button>
+                        <div x-show="activeAccordion === 5" x-collapse x-cloak class="px-6 pb-6">
+                            <p class="text-sm text-neutral-500 leading-relaxed">
+                                Non. Nous nous concentrons sur la tenue de livres et l’accompagnement en gestion. Pour les impôts, nous collaborons avec un cabinet partenaire spécialisé pour vous offrir la meilleure expertise possible.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-neutral-100 rounded-sm">
+                        <button @click="activeAccordion = (activeAccordion === 6 ? null : 6)" class="w-full flex justify-between items-center p-6 text-left outline-none">
+                            <span class="text-sm font-bold uppercase tracking-tight text-neutral-900">Est-ce possible d'avoir seulement une formation QuickBooks/DEXT?</span>
+                            <span class="text-brand-accent transition-transform duration-300" :class="activeAccordion === 6 ? 'rotate-45' : ''">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-6-6h12"></path></svg>
+                            </span>
+                        </button>
+                        <div x-show="activeAccordion === 6" x-collapse x-cloak class="px-6 pb-6">
+                            <p class="text-sm text-neutral-500 leading-relaxed">
+                                Oui! Vous pouvez nous contacter uniquement pour une formation ou une migration logicielle, idéal si vous gérez déjà votre comptabilité à l'interne.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-6 border-b border-neutral-200 pb-2">Logiciels et technologie</h4>
+                <div class="space-y-2">
+                    <div class="bg-white border border-neutral-100 rounded-sm">
+                        <button @click="activeAccordion = (activeAccordion === 7 ? null : 7)" class="w-full flex justify-between items-center p-6 text-left outline-none">
+                            <span class="text-sm font-bold uppercase tracking-tight text-neutral-900">Offrez-vous des services sur papier?</span>
+                            <span class="text-brand-accent transition-transform duration-300" :class="activeAccordion === 7 ? 'rotate-45' : ''">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-6-6h12"></path></svg>
+                            </span>
+                        </button>
+                        <div x-show="activeAccordion === 7" x-collapse x-cloak class="px-6 pb-6">
+                            <p class="text-sm text-neutral-500 leading-relaxed">
+                                Non. Nous travaillons 100 % en infonuagique. Cela permet de réduire les erreurs, d'avoir des données à jour en tout temps et de vous donner accès à vos infos partout, quand vous voulez.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="mt-20 text-center">
+            <p class="text-neutral-400 text-sm italic mb-6">D'autres questions spécifiques?</p>
+            <a href="#contact" class="inline-block px-10 py-4 bg-brand-dark text-white text-xs font-bold uppercase tracking-widest hover:bg-brand-accent transition duration-300">
+                Nous écrire directement
+            </a>
+        </div>
+    </div>
+</section>
+<section id="contact" class="py-24 bg-white text-neutral-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="mb-16 border-b border-neutral-100 pb-8">
+            <h2 class="text-xs font-bold uppercase tracking-[0.4em] text-brand-accent">Contact</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+            
+            <div>
+                <h3 class="text-3xl font-semibold mb-8 italic">Des questions? Écris-nous!</h3>
                 
-                <div class="bg-white p-8 lg:p-12 text-neutral-900">
-                    <form action="#" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="text-xs font-bold uppercase tracking-wider mb-2 block">Nom complet</label>
-                                <input type="text" class="w-full border-b border-neutral-200 py-3 focus:border-brand-accent outline-none transition bg-transparent" placeholder="Jean Tremblay">
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold uppercase tracking-wider mb-2 block">Entreprise</label>
-                                <input type="text" class="w-full border-b border-neutral-200 py-3 focus:border-brand-accent outline-none transition bg-transparent" placeholder="Nom de votre cie">
-                            </div>
+                <form action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2 block">Nom complet*</label>
+                            <input type="text" name="name" required class="w-full bg-transparent border-b border-neutral-200 py-3 focus:border-brand-accent outline-none transition text-sm" placeholder="Votre nom">
                         </div>
                         <div>
-                            <label class="text-xs font-bold uppercase tracking-wider mb-2 block">Service souhaité</label>
-                            <select class="w-full border-b border-neutral-200 py-3 focus:border-brand-accent outline-none transition bg-transparent">
-                                <option>Fiscalité</option>
-                                <option>Certification</option>
-                                <option>Tenue de livres</option>
-                                <option>Autre</option>
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2 block">Email*</label>
+                            <input type="email" name="email" required class="w-full bg-transparent border-b border-neutral-200 py-3 focus:border-brand-accent outline-none transition text-sm" placeholder="votre@email.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2 block">Numéro de téléphone*</label>
+                            <input type="tel" name="phone" required class="w-full bg-transparent border-b border-neutral-200 py-3 focus:border-brand-accent outline-none transition text-sm" placeholder="(000) 000-0000">
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2 block">Méthode préférée de communication*</label>
+                            <select name="communication_pref" required class="w-full bg-transparent border-b border-neutral-200 py-3 focus:border-brand-accent outline-none transition text-sm appearance-none">
+                                <option value="Telephone">Téléphone</option>
+                                <option value="Email">Courriel</option>
                             </select>
                         </div>
-                        <button class="w-full py-4 bg-brand-dark text-white text-xs font-bold uppercase tracking-widest hover:bg-brand-accent transition duration-300">
-                            Envoyer la demande
-                        </button>
-                    </form>
+                    </div>
+
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2 block">Services recherchés*</label>
+                        <input type="text" name="services" required class="w-full bg-transparent border-b border-neutral-200 py-3 focus:border-brand-accent outline-none transition text-sm" placeholder="Ex: Tenue de livres, Transformation numérique...">
+                    </div>
+
+                    <div>
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2 block">Donne-nous le plus de détails possibles</label>
+                        <textarea name="message" rows="4" class="w-full bg-transparent border border-neutral-100 p-4 focus:border-brand-accent outline-none transition text-sm mt-4" placeholder="Parlez-nous de votre entreprise..."></textarea>
+                    </div>
+
+                    <button type="submit" class="px-12 py-4 bg-brand-accent text-white text-xs font-bold uppercase tracking-[0.3em] hover:bg-brand-dark transition-all duration-500">
+                        Envoyer le message
+                    </button>
+                </form>
+            </div>
+
+            <div class="lg:pl-20 border-l border-neutral-100">
+                <h3 class="text-3xl font-semibold mb-6 italic">Mieux encore, appelle-nous!</h3>
+                <p class="text-neutral-500 mb-12 leading-relaxed">
+                    Nous sommes très contents de parler de vive voix à nos clients.
+                </p>
+
+                <div class="space-y-10">
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Axis CPA Inc.</h4>
+                        <div class="h-px w-8 bg-brand-accent mb-6"></div>
+                    </div>
+
+                    <div class="group">
+                        <p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Téléphone</p>
+                        <a href="tel:8199180603" class="text-2xl font-light hover:text-brand-accent transition">(819) 918-0603</a>
+                    </div>
+
+                    <div class="group">
+                        <p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Courriel</p>
+                        <a href="mailto:info@axiscpa.ca" class="text-2xl font-light hover:text-brand-accent transition">info@axiscpa.ca</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="py-12 bg-white border-t border-neutral-100">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <span class="text-xl font-bold tracking-tighter uppercase italic">Axis<span class="text-brand-accent">.</span>CPA</span>
+<footer class="py-20 bg-brand-dark text-white border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-8 md:mb-0">
+                <a href="/">
+                    <img src="axis.svg" alt="Logo Axis CPA" class="h-14 w-auto invert brightness-0">
+                </a>
+               
             </div>
-            <div class="text-neutral-400 text-xs tracking-widest uppercase">
-                &copy; 2026 Axis CPA Inc. Tous droits réservés.
-            </div>
-            <div class="mt-6 md:mt-0 flex space-x-6 text-xs font-bold uppercase tracking-widest">
-                <a href="#" class="hover:text-brand-accent transition">LinkedIn</a>
-                <a href="#" class="hover:text-brand-accent transition">Confidentialité</a>
+            
+            <div class="flex space-x-8 mb-8 md:mb-0 text-[10px] font-bold uppercase tracking-widest">
+                <a href="#services" class="hover:text-brand-accent transition">Services</a>
+                <a href="#about" class="hover:text-brand-accent transition">À Propos</a>
+                <a href="#faq" class="hover:text-brand-accent transition">F.A.Q.</a>
+                <a href="#contact" class="hover:text-brand-accent transition text-brand-accent">Contact</a>
             </div>
         </div>
-    </footer>
+
+        <div class="mt-16 pt-8 border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center">
+            <div class="text-neutral-500 text-[10px] tracking-widest uppercase">
+                &copy; 2026 Axis CPA Inc. Tous droits réservés.
+            </div>
+            <div class="mt-6 md:mt-0 flex space-x-6 text-[10px] font-bold uppercase tracking-widest">
+                <a href="#" class="text-neutral-400 hover:text-white transition">LinkedIn</a>
+                <a href="#" class="text-neutral-400 hover:text-white transition">Confidentialité</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
 </body>
