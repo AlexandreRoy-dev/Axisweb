@@ -30,11 +30,35 @@
         }
     </script>
     <style>
+        html { scroll-behavior: smooth; }
         body { font-family: 'DM Sans', sans-serif; }
         h1, h2, h3 { font-family: 'Instrument Sans', sans-serif; }
+        body { opacity: 0; transition: opacity 0.35s ease; }
+        body.page-visible { opacity: 1; }
+        body.page-leaving { opacity: 0; }
     </style>
 </head>
 <body class="antialiased bg-white text-neutral-900">
+<script>
+(function() {
+    var duration = 350;
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function() { document.body.classList.add('page-visible'); });
+    else document.body.classList.add('page-visible');
+    document.addEventListener('click', function(e) {
+        var a = e.target.closest('a');
+        if (!a || !a.href) return;
+        if (a.target === '_blank' || a.hasAttribute('download')) return;
+        try {
+            var url = new URL(a.href, window.location.href);
+            if (url.origin !== window.location.origin) return;
+            if (url.pathname === window.location.pathname) return;
+        } catch (err) { return; }
+        e.preventDefault();
+        document.body.classList.add('page-leaving');
+        setTimeout(function() { window.location.href = a.href; }, duration);
+    }, true);
+})();
+</script>
 
 <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-neutral-100">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">

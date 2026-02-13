@@ -31,6 +31,7 @@
     </script>
     
     <style>
+        html { scroll-behavior: smooth; }
         [x-cloak] { display: none !important; }
         .glass-nav {
             background: rgba(255, 255, 255, 0.8);
@@ -38,10 +39,33 @@
         }
         body { font-family: 'DM Sans', sans-serif; }
         h1, h2, h3 { font-family: 'Instrument Sans', sans-serif; }
+        body { opacity: 0; transition: opacity 0.35s ease; }
+        body.page-visible { opacity: 1; }
+        body.page-leaving { opacity: 0; }
     </style>
 </head>
 
 <body class="antialiased bg-white text-neutral-900" x-data="{ mobileMenuOpen: false }">
+<script>
+(function() {
+    var duration = 350;
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function() { document.body.classList.add('page-visible'); });
+    else document.body.classList.add('page-visible');
+    document.addEventListener('click', function(e) {
+        var a = e.target.closest('a');
+        if (!a || !a.href) return;
+        if (a.target === '_blank' || a.hasAttribute('download')) return;
+        try {
+            var url = new URL(a.href, window.location.href);
+            if (url.origin !== window.location.origin) return;
+            if (url.pathname === window.location.pathname) return;
+        } catch (err) { return; }
+        e.preventDefault();
+        document.body.classList.add('page-leaving');
+        setTimeout(function() { window.location.href = a.href; }, duration);
+    }, true);
+})();
+</script>
 
 <nav class="fixed w-full z-50 glass-nav border-b border-neutral-100">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -231,7 +255,7 @@ Nous mettons en place des systèmes cohérents et fiables pour structurer ton or
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
             <div class="relative">
                 <div class="aspect-[4/5] bg-neutral-100 overflow-hidden rounded-sm">
-                    <img src="public/about.png" alt="Architecture Axis" class="object-cover w-full h-full ">
+                    <img src="public/about2.png" alt="Architecture Axis" class="object-cover w-full h-full ">
                 </div>
                 <div class="absolute -bottom-6 -right-6 bg-brand-accent p-8 hidden md:block shadow-xl">
                     <p class="text-white font-bold text-3xl italic leading-none">L'Axe</p>
@@ -503,8 +527,8 @@ Nous mettons en place des systèmes cohérents et fiables pour structurer ton or
                 </a>
             </div>
             <div class="flex items-center gap-5 flex-wrap justify-center">
-                <img src="/public/clickup.png" alt="ClickUp" class="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition" loading="lazy">
-                <img src="/public/qbo.png" alt="QuickBooks Online" class="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition" loading="lazy">
+                <img src="/public/clickup.png" alt="ClickUp" class="h-24 w-auto object-contain opacity-90 hover:opacity-100 transition" loading="lazy">
+                <img src="/public/qbo.png" alt="QuickBooks Online" class="h-24 w-auto object-contain opacity-90 hover:opacity-100 transition" loading="lazy">
             </div>
             <div class="flex space-x-8 text-[10px] font-bold uppercase tracking-widest">
                 <a href="#services" class="hover:text-brand-accent transition">Services</a>
@@ -568,6 +592,15 @@ Nous mettons en place des systèmes cohérents et fiables pour structurer ton or
                     this.showBanner = false;
                 }
             };
+        }
+    </script>
+    <script>
+        // Smooth scroll to anchor when landing on page with hash (e.g. from another page)
+        if (window.location.hash) {
+            window.addEventListener('load', function () {
+                var target = document.querySelector(window.location.hash);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
