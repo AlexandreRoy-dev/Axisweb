@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <title>Axis CPA — Excellence en Comptabilité | Gatineau</title>
@@ -347,20 +347,10 @@ Nous mettons en place des systèmes cohérents et fiables pour structurer ton or
                         </button>
                         <div x-show="activeAccordion === 1" x-collapse x-cloak class="px-6 pb-6">
                             <p class="text-sm text-neutral-500 leading-relaxed">
-                                Nos prix sont forfaitaires et dépendent des services récurrents établis ensemble. Un court appel est nécessaire pour comprendre tes besoins. Dans la plupart des cas, un frais d’évaluation et d’ouverture de dossier s’applique avant de commencer.
+                                Nos tarifs sont établis sous forme de forfait, en fonction des services récurrents et du niveau de complexité du dossier. Un court appel permet d'évaluer les besoins et de confirmer le cadre de collaboration.
                             </p>
-                        </div>
-                    </div>
-                    <div class="bg-white border border-neutral-100 rounded-sm">
-                        <button @click="activeAccordion = (activeAccordion === 2 ? null : 2)" class="w-full flex justify-between items-center p-6 text-left outline-none">
-                            <span class="text-sm font-bold uppercase tracking-tight text-neutral-900">Pourquoi des frais d'évaluation et d'ouverture de dossier?</span>
-                            <span class="text-brand-accent transition-transform duration-300" :class="activeAccordion === 2 ? 'rotate-45' : ''">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-6-6h12"></path></svg>
-                            </span>
-                        </button>
-                        <div x-show="activeAccordion === 2" x-collapse x-cloak class="px-6 pb-6">
-                            <p class="text-sm text-neutral-500 leading-relaxed">
-                                Pour bien faire les choses dès le départ. On analyse ta comptabilité actuelle, tes comptes bancaires et tes obligations fiscales pour éviter les surprises et assurer une structure claire dès le jour 1.
+                            <p class="text-sm text-neutral-500 leading-relaxed mt-3">
+                                Des frais d’évaluation et d’ouverture de dossier peuvent s'appliquer avant le début des travaux.
                             </p>
                         </div>
                     </div>
@@ -371,31 +361,40 @@ Nous mettons en place des systèmes cohérents et fiables pour structurer ton or
                 <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-6 border-b border-neutral-200 pb-2">Processus et collaboration</h4>
                 <div class="space-y-2">
                     <div class="bg-white border border-neutral-100 rounded-sm">
-                        <button @click="activeAccordion = (activeAccordion === 3 ? null : 3)" class="w-full flex justify-between items-center p-6 text-left outline-none">
+                        <button @click="activeAccordion = (activeAccordion === 2 ? null : 2)" class="w-full flex justify-between items-center p-6 text-left outline-none">
                             <span class="text-sm font-bold uppercase tracking-tight text-neutral-900">Comment se passe le début de notre collaboration?</span>
+                            <span class="text-brand-accent transition-transform duration-300" :class="activeAccordion === 2 ? 'rotate-45' : ''">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-6-6h12"></path></svg>
+                            </span>
+                        </button>
+                        <div x-show="activeAccordion === 2" x-collapse x-cloak class="px-6 pb-6">
+                            <ul class="text-sm text-neutral-500 space-y-3 list-disc pl-4">
+                                <li>Court appel exploratoire afin de valider si nous pourrions collaborer.</li>
+                                <li>Évaluation complète de la situation et remise d'un rapport d’évaluation.</li>
+                                <li>Ouverture de dossier et planification des prochaines étapes (outils, nettoyage, formations).</li>
+                                <li>Définition du forfait de services récurrents une fois le dossier structuré et à jour.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-6 border-b border-neutral-200 pb-2">Services offerts</h4>
+                <div class="space-y-2">
+                    <div class="bg-white border border-neutral-100 rounded-sm">
+                        <button @click="activeAccordion = (activeAccordion === 3 ? null : 3)" class="w-full flex justify-between items-center p-6 text-left outline-none">
+                            <span class="text-sm font-bold uppercase tracking-tight text-neutral-900">Faites-vous les impôts corporatifs et personnels?</span>
                             <span class="text-brand-accent transition-transform duration-300" :class="activeAccordion === 3 ? 'rotate-45' : ''">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-6-6h12"></path></svg>
                             </span>
                         </button>
                         <div x-show="activeAccordion === 3" x-collapse x-cloak class="px-6 pb-6">
-                            <ul class="text-sm text-neutral-500 space-y-3 list-disc pl-4">
-                                <li>Court appel pour valider le "fit".</li>
-                                <li>Évaluation complète et rapport d’évaluation.</li>
-                                <li>Ouverture de dossier et planification (outils, nettoyage, formations).</li>
-                                <li>Définition du forfait une fois le dossier à jour.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="bg-white border border-neutral-100 rounded-sm">
-                        <button @click="activeAccordion = (activeAccordion === 4 ? null : 4)" class="w-full flex justify-between items-center p-6 text-left outline-none">
-                            <span class="text-sm font-bold uppercase tracking-tight text-neutral-900">Acceptez-vous des clients partout au Québec et en Ontario?</span>
-                            <span class="text-brand-accent transition-transform duration-300" :class="activeAccordion === 4 ? 'rotate-45' : ''">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m-6-6h12"></path></svg>
-                            </span>
-                        </button>
-                        <div x-show="activeAccordion === 4" x-collapse x-cloak class="px-6 pb-6">
                             <p class="text-sm text-neutral-500 leading-relaxed">
-                                Oui. Tout se fait à distance et en infonuagique, nous pouvons donc travailler ensemble peu importe votre localisation.
+                                Non. Notre expertise est volontairement centrée sur la structuration comptable et l'accompagnement décisionnel.
+                            </p>
+                            <p class="text-sm text-neutral-500 leading-relaxed mt-3">
+                                Les déclarations fiscales sont confiées à un partenaire spécialisé (ou celui de ton choix), afin d'assurer une prise en charge rigoureuse et dédiée à ce volet.
                             </p>
                         </div>
                     </div>
