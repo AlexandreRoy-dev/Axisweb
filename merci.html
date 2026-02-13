@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Message envoyé | Axis CPA — Gatineau</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Merci d'avoir contacté Axis CPA. Nous avons bien reçu votre message et vous répondrons sous peu.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700|Instrument+Sans:400,500,600,700&display=swap">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#F8F9FA',
+                            dark: '#111111',
+                            accent: '#C5A059',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        heading: ['Instrument Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Instrument Sans', sans-serif; }
+        body { opacity: 0; transition: opacity 0.35s ease; }
+        body.page-visible { opacity: 1; }
+        body.page-leaving { opacity: 0; }
+    </style>
+</head>
+<body class="antialiased bg-white text-neutral-900">
+<script>
+(function() {
+    var duration = 350;
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function() { document.body.classList.add('page-visible'); });
+    else document.body.classList.add('page-visible');
+    document.addEventListener('click', function(e) {
+        var a = e.target.closest('a');
+        if (!a || !a.href) return;
+        if (a.target === '_blank' || a.hasAttribute('download')) return;
+        try {
+            var url = new URL(a.href, window.location.href);
+            if (url.origin !== window.location.origin) return;
+            if (url.pathname === window.location.pathname) return;
+        } catch (err) { return; }
+        e.preventDefault();
+        document.body.classList.add('page-leaving');
+        setTimeout(function() { window.location.href = a.href; }, duration);
+    }, true);
+})();
+</script>
+
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-neutral-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex justify-between items-center h-20">
+            <a href="index.html" aria-label="Accueil Axis CPA">
+                <img src="/public/axis.svg" alt="Logo Axis CPA" class="h-12 lg:h-16 w-auto block">
+            </a>
+            <div class="flex items-center gap-6 text-sm font-medium tracking-wide uppercase">
+                <a href="index.html" class="hover:text-brand-accent transition">Accueil</a>
+                <a href="faq.html" class="hover:text-brand-accent transition">F.A.Q.</a>
+                <a href="index.html#contact" class="hover:text-brand-accent transition">Contact</a>
+                <a href="confidentialite.html" class="hover:text-brand-accent transition">Confidentialité</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="pt-28 pb-20 min-h-[60vh] flex items-center">
+    <div class="max-w-2xl mx-auto px-6 lg:px-12 text-center">
+        <div class="mb-8">
+            <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/10 text-brand-accent">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </span>
+        </div>
+        <h1 class="text-3xl lg:text-4xl font-bold text-brand-dark mb-4">Merci pour votre message</h1>
+        <p class="text-lg text-neutral-600 mb-8 leading-relaxed">
+            Nous avons bien reçu votre demande. Un membre de l'équipe Axis CPA vous répondra dans les plus brefs délais.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="index.html" class="inline-block px-8 py-4 bg-brand-accent text-white text-sm font-bold uppercase tracking-widest hover:bg-brand-dark transition text-center">
+                Retour à l'accueil
+            </a>
+            <a href="index.html#contact" class="inline-block px-8 py-4 border border-neutral-200 text-sm font-bold uppercase tracking-widest hover:bg-neutral-50 transition text-center">
+                Autre question
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer class="py-12 bg-brand-dark text-white border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="index.html">
+                <img src="/public/axis.svg" alt="Logo Axis CPA" class="h-10 w-auto invert brightness-0">
+            </a>
+            <p class="text-neutral-500 text-sm">© 2026 Axis CPA Inc. Tous droits réservés. Gatineau, Québec.</p>
+            <a href="index.html" class="text-sm text-brand-accent hover:underline">Retour à l'accueil</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
